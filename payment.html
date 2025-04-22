@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - CineClick</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #fff0f5, #ffe4e1);
+        }
+        .payment-container {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-pay {
+            background-color: #d63384;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .btn-pay:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-danger text-white text-center py-4">
+        <h1>CineClick - Payment</h1>
+    </header>
+
+    <!-- Payment Form -->
+    <div class="payment-container">
+        <h3 class="text-center mb-4">Complete Your Payment</h3>
+
+        <!-- Movie Info -->
+        <div id="movie-info" class="mb-3">
+            <p><strong>Movie Name:</strong> <span id="movie-name"></span></p>
+            <p><strong>Seats Selected:</strong> <span id="seats"></span></p>
+            <p><strong>Show Date:</strong> <span id="show-date"></span></p>
+        </div>
+
+        <!-- Payment Form -->
+        <form id="paymentForm">
+            <div class="mb-3">
+                <label for="cardName" class="form-label">Cardholder Name</label>
+                <input type="text" class="form-control" id="cardName" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="cardNumber" maxlength="16" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="expiry" class="form-label">Expiry Date</label>
+                    <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
+                </div>
+                <div class="col">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="password" class="form-control" id="cvv" maxlength="3" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="text" class="form-control" id="amount" value="$0" readonly>
+            </div>
+            <button type="submit" class="btn btn-pay w-100">Pay Now</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieName = urlParams.get("movieName");
+            const selectedSeats = urlParams.get("seats");
+            const showDate = urlParams.get("date");
+            const totalAmount = urlParams.get("amount");
+
+            // Update the page with the passed data
+            document.getElementById("movie-name").textContent = movieName;
+            document.getElementById("seats").textContent = selectedSeats;
+            document.getElementById("show-date").textContent = showDate;
+            document.getElementById("amount").value = `$${totalAmount}`;
+
+            document.getElementById("paymentForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                window.location.href = "ticket.html?movieName=" + encodeURIComponent(movieName) +
+                                       "&seats=" + encodeURIComponent(selectedSeats) +
+                                       "&date=" + encodeURIComponent(showDate) +
+                                       "&amount=" + encodeURIComponent(totalAmount);
+            });
+        });
+    </script>
+</body>
+</html>

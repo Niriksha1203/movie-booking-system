@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Your custom CSS -->
+    <style>
+        /* Background Video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+        /* Content Styling */
+        .content {
+            position: relative;
+            z-index: 1;
+            color: rgb(196, 121, 121);
+            text-shadow: 2px 2px 5px black;
+        }
+
+        header {
+            background: rgba(184, 38, 38, 0.879); /* Semi-transparent pink */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-section {
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 5rem;
+            color: #ffcc00; /* Gold color */
+            text-shadow: 3px 3px 10px rgba(223, 151, 151, 0.8);
+            align-items: center;
+        }
+/* Scrolling Offers Ticker */
+.offers-ticker {
+    background-color: #151414;  /* Tomato color */
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Scrolling Text */
+.offers-ticker span {
+    display: inline-block;
+    padding-left: 100%;  /* Starts from the right side */
+    animation: scroll-left 30s linear infinite;
+    animation-timing-function: linear;
+}
+
+/* Keyframes for scrolling */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); /* Start from right */
+    }
+    100% {
+        transform: translateX(-100%); /* End at the left */
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay muted loop class="video-bg">
+      <source src="C:\Users\Umesh S\Downloads\3134589-uhd_3840_2160_24fps (1).mp4" type="video/mp4">
+    </video>
+  
+    <!-- Flex wrapper for layout -->
+    <div class="d-flex flex-column min-vh-100 content">
+      
+      <header class="text-white text-center py-4 shadow-sm">
+        <h1>CineClick 🎬</h1>
+      </header>
+  
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">CineClick</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="movies.html">Movies</a></li>
+            <li class="nav-item"><a class="nav-link" href="book.html">Book Tickets</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Scrolling Offers -->
+      <div class="offers-ticker">
+        <span>🎉 Don't miss out! Special offers: 20% off on all movie tickets this weekend! 🍿 Book Now! 🎥</span>
+      </div>
+  
+      <main class="container py-5 text-center flex-grow-1">
+        <h1>Welcome to CineClick 🎬</h1>
+      </main>
+  
+      <!-- Footer stays at bottom -->
+      <footer class="bg-dark text-white text-center py-3 mt-auto">
+        <p>&copy; 2025 Movie Booking System. All Rights Reserved.</p>
+      </footer>
+    </div>
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

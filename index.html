@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineClick - Movie Booking</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      color: #333;
+    }
+
+    header {
+      background-color: #ff3c6f;
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+
+    .navbar {
+      background-color: #2c2c2c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #ff3c6f;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .main-content {
+      display: flex;
+      gap: 20px;
+      padding: 30px 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero {
+      flex: 2;
+      background: url("C:\Users\Umesh S\Downloads\3134589-uhd_3840_2160_24fps (1).mp4") no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(21, 21, 21);
+      text-shadow: 2px 2px 6px rgba(242, 238, 238, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    aside {
+      flex: 1;
+      max-width: 300px;
+      order: -1; /* This places the aside to the left side */
+    }
+
+    .offer-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .offer-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .offer-card .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .offer-card h2 {
+      color: #ff3c6f;
+      margin-bottom: 10px;
+    }
+
+    .offer-card p {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .offer-card a {
+      display: inline-block;
+      background-color: #ff3c6f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .offer-card a:hover {
+      background-color: #e2325f;
+    }
+
+    footer {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 20px 0; /* Adjusted padding */
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        background-color: #2c2c2c;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .navbar ul.show {
+        display: block;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .main-content {
+        flex-direction: column;
+        align-items: center; /* Center the content on smaller screens */
+      }
+
+      .hero {
+        width: 100%;
+        height: auto; /* Ensures the hero section is responsive */
+        text-align: center;
+      }
+
+      aside {
+        width: 100%; /* Makes the aside section take full width on small screens */
+        order: 0; /* Reset the order for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>CineClick 🎬</header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">Cine Click</a>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="movies.html">Movies</a></li>
+      <li><a href="book.html">Book Tickets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Layout: Hero + Sidebar -->
+  <div class="main-content">
+    <aside>
+      <div class="offer-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWf5AQ1SMBrCFl14Zg-h3CbHUo2VSsWOVh0DinRgDc4xLrt-FzPV1bLjn5NANEseF9yEE&usqp=CAU" alt="Special Offer">
+        <div class="content">
+          <h2>50% Off on First Booking!</h2>
+          <p>Enjoy your favorite movies at half price. Limited time offer – book your seats today!</p>
+          <a href="movies.html">Book Now</a>
+        </div>
+      </div>
+    </aside>
+    
+    <section class="hero">
+      <div>
+        <h1>Welcome to CineClick</h1>
+        <p>Experience movies like never before 🍿</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 CineClick. All Rights Reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
